@@ -1,0 +1,40 @@
+a {
+  color: #007bff !important;
+  font-size: 24px;
+}
+
+a:hover {
+  color: #0056b3 !important;
+  text-decoration: underline !important;
+  cursor: pointer;
+}
+
+a > svg {
+  margin-right: 10px;
+}
+
+.menu {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.menu > div {
+  min-width: 250px;
+  margin: 15px 0;
+}
+
+.generation {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.count {
+  color: #0a8;
+  font-weight: 700;
+}
+
+.count.finished {
+  color: #c12121;
+}
