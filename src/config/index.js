@@ -5,5 +5,5 @@ export const INITIAL_SPEED = 150;
 export default {
   INITIAL_WIDTH,
   INITIAL_HEIGHT,
-  INITIAL_SPEED
+  INITIAL_SPEED,
 };

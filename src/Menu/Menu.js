@@ -1,6 +1,7 @@
-import React, { Component } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "./Menu.css";
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React, { Component } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import './Menu.css';
 
 export default class Menu extends Component {
   handleClickOnPlay() {
@@ -20,10 +21,10 @@ export default class Menu extends Component {
   }
 
   render() {
-    let countClass = "count";
+    let countClass = 'count';
 
     if (this.props.finished) {
-      countClass += " finished";
+      countClass += ' finished';
     }
     return (
       <div className="menu">

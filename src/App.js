@@ -16,7 +16,7 @@ export default class App extends Component {
       playing: false,
       generation: 0,
       speed: INITIAL_SPEED,
-      finished: false
+      finished: false,
     };
   }
 
@@ -51,7 +51,7 @@ export default class App extends Component {
     this.setState({
       board: this.makeBoard(INITIAL_WIDTH, INITIAL_HEIGHT, randomize),
       finished: false,
-      generation: 0
+      generation: 0,
     });
   }
 
@@ -86,12 +86,12 @@ export default class App extends Component {
     if (changed) {
       this.setState({
         board: newBoard,
-        generation: this.state.generation + 1
+        generation: this.state.generation + 1,
       });
     } else {
       this.setState({
         finished: true,
-        playing: false
+        playing: false,
       });
     }
   }
@@ -102,20 +102,18 @@ export default class App extends Component {
     let nb = 0;
 
     for (let r1 = r - 1; r1 <= r + 1; r1++) {
+      /* Circular row */
+      const row = (r1 < 0 ? boardRowLength + r1 : r1) % boardRowLength;
       for (let c1 = c - 1; c1 <= c + 1; c1++) {
+        /* Circular column */
+        const column =
+          (c1 < 0 ? boardColumnLength + c1 : c1) % boardColumnLength;
+
         /**
          * Coordinate (r, c) belong to the cell from which we want the neighbours. We don't need to verify its value.
-         * Verify we don't exceed the length of the board
-         * Verify that the cell is alive
+         * Verify that the nieghbour cell is alive
          */
-        if (
-          (c1 !== c || r1 !== r) &&
-          r1 >= 0 &&
-          r1 < boardRowLength &&
-          c1 >= 0 &&
-          c1 < boardColumnLength &&
-          this.state.board[r1][c1]
-        ) {
+        if ((column !== c || row !== r) && this.state.board[row][column]) {
           nb++;
         }
       }
