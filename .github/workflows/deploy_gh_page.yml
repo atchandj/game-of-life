@@ -1,4 +1,4 @@
-name: NodeJS with Webpack
+name: Build and Deploy
 
 on:
   push:
@@ -12,7 +12,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x, 14.x, 16.x]
+        node-version: [16.x]
     
     steps:
     - uses: actions/checkout@v3
@@ -21,10 +21,18 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-
-    - name: Build
+        
+    - name: Install and Build
       run: |
-        npm install
-        git config --global user.name "github-actions[bot]"
-        git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-        npm run deploy
+          npm install
+          npm run build
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+    - name: Deploy 🚀
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: build # The folder the action should deploy.
+          token:  ${{ secrets.GIT_REPO_TOKEN }}
+        
