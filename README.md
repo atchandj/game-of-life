@@ -1,5 +1,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Deployed instance
+
+The project has been deployed on GitHub Page. It can be accessed on : https://atchandj.github.io/game-of-life/ 
+
 ## Available Scripts
 
 In the project directory, you can run:
